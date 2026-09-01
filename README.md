@@ -1,4 +1,3 @@
-<<<<<<< README.md
 MinecraftApi – GDMC Wrapper
 
 This class is our single interface to Minecraft.
@@ -9,7 +8,6 @@ It wraps the GDMC HTTP Interface and hides:
 -World coordinate math
 
 Builder code should ONLY use this API and never talk to HTTP directly.
-
 
 1. What this API provides:
 
@@ -28,14 +26,9 @@ Builder code should ONLY use this API and never talk to HTTP directly.
 
     Where: (0,0,0) = corner of the build area
 
-
-
-
 2. Setup In Minecraft: Make sure the GDMC HTTP mod is running and set a build area:
 
-    
     /setbuildarea xFrom yFrom zFrom xTo yTo zTo
-
 
 In Java:
 
@@ -44,8 +37,6 @@ In Java:
     api.refreshBuildArea();
 
 You must call refreshBuildArea() once at the start.
-
-
 
 3. Coordinate system (IMPORTANT)
 
@@ -57,13 +48,11 @@ You must call refreshBuildArea() once at the start.
         worldY = yFrom + dy
         worldZ = zFrom + dz
 
-
 So:
 
     api.setBlockInBuildArea(0,0,0,"minecraft:stone");
 
 Places a block at the corner of the build area, not at world (0,0,0).
-
 
 4. Place one block
 
@@ -72,8 +61,6 @@ Places a block at the corner of the build area, not at world (0,0,0).
     Block IDs may include states:
 
         "minecraft:oak_stairs[facing=north,half=bottom]"
-
-
 
 5. Place many blocks (batch placement)
 
@@ -85,10 +72,7 @@ Places a block at the corner of the build area, not at world (0,0,0).
 
         api.setBlocksInBuildArea(blocks);
 
-
 This is fast because all blocks are sent in one request (or small chunks).
-
-
 
 6. Fill a box (floors, walls, volumes)
 
@@ -96,27 +80,11 @@ This is fast because all blocks are sent in one request (or small chunks).
 
 This creates a 10×1×10 floor.
 
-
-
 7. Read a block
     
         var block = api.getBlockInBuildArea(3,0,5);
         System.out.println(block.id);
 
 
-open -a TextEdit README.md
 
-## Testing
-
-The terrain scanner module was tested by Banji Sule (Kent ID: 22039017).
-
-Test file: src/main/java/com/gdmc/tester/GDMCTesterBanji.java
-Full test suite: banji-scanner-tests branch / banji-testing/ folder
-
-Results:
-- Gradle build: 58 tests, 58 PASS, 0 FAIL
-- Maven build:  17 tests, 17 PASS, 0 FAIL
-- Combined:     75 tests, 100% pass rate
-- Environment:  Live Minecraft 1.21.11 / GDMC HTTP Interface 1.8.4
-
-Documentation: Documentation/GDMC_Test_Results_Banji_Sule.docx
+TO BE UPDATED
